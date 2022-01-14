@@ -1,3 +1,13 @@
+name: Compile and publish demo pdf.
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
 jobs:
   latex:
     runs-on: ubuntu-latest
