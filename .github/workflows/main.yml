@@ -1,0 +1,18 @@
+jobs:
+  latex:
+    runs-on: ubuntu-latest
+    name: Compile and publish demo pdf.
+    steps:
+    - uses: actions/checkout@v1
+    - name: Compilation
+      uses: dante-ev/latex-action@2021-A
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        root_file: 'main.tex'
+        compiler: xelatex
+    - name: Archive PDF
+      uses: actions/upload-artifact@v2
+      with:
+        name: main.pdf
+        path: main.pdf

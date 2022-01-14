@@ -1,0 +1,96 @@
+\usepackage{textpos}
+
+\DeclareOptionBeamer{compress}{\beamer@compresstrue}
+\ProcessOptionsBeamer
+
+\mode<presentation>
+
+\useoutertheme[footline=authorinstitutetitle,subsection=false]{miniframes}
+\usecolortheme{whale}
+\usecolortheme{orchid}
+\useinnertheme{rectangles}
+
+\setbeamerfont{block title}{size={}}
+
+\xdefinecolor{uestc}{rgb}{0.188,0.329,0.502}
+
+\setbeamercolor{footline}{bg=uestc}
+\setbeamercolor{frametitle}{bg=uestc,fg=white}
+\setbeamercolor{title}{bg=uestc}
+\setbeamercolor{structure}{fg=uestc}
+
+\setbeamercolor{palette primary}{use=structure,fg=white,bg=uestc}
+\setbeamercolor{palette secondary}{use=structure,fg=white,bg=uestc!75!black}
+\setbeamercolor{palette tertiary}{use=structure,fg=white,bg=uestc!50!black}
+\setbeamercolor{palette quaternary}{fg=white,bg=uestc!50!black}
+
+\setbeamercolor{titlelike}{parent=palette primary}
+
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+
+\setbeamertemplate{footline} 
+  {%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~/~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+
+\setbeamertemplate{title page}
+{
+    \vbox{
+        \begin{center}
+            \begin{minipage}{0.4\textwidth}
+                \includegraphics[width=\linewidth]{theme/uestclogo.png}
+            \end{minipage}
+            \hfill
+            \begin{minipage}{0.3\textwidth}
+                \includegraphics[width=\linewidth]{theme/uestcscene.png}
+            \end{minipage}
+        \end{center}
+        \begin{beamercolorbox}[wd=\paperwidth,sep=8pt,center]{title}
+            \vskip0.75em%
+            \usebeamerfont{title}\inserttitle\par%
+            \ifx\insertsubtitle\@empty%
+            \else%
+                \vskip0.75em%
+                {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+            \fi%     
+            \vskip1em%\par
+            \usebeamerfont{author}\insertauthor
+            \vskip0.75em%
+        \end{beamercolorbox}
+        \vskip1.25em%
+        \begin{center}
+            \noindent\begin{minipage}{40pt}
+                \includegraphics[width=\linewidth]{theme/dmlogo.png}
+            \end{minipage}
+            \hspace{5pt}
+            \begin{minipage}{0.5\textwidth}
+                \textcolor{uestc}{
+                    Data Mining Lab, UESTC \\
+                    Email: xxx@std.uestc.edu.cn
+                }
+            \end{minipage}
+        \end{center}
+    }
+}
+
+\mode
+<all>
